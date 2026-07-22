@@ -26,4 +26,4 @@ The project ingests customers, watchlist and transaction data from batch and str
 
 ## 2. Architecture Overview
 
-![Architecture diagram 1](finguard_architecture.png)
+![Architecture diagram 1](images/finguard_architecture.png)
