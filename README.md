@@ -68,6 +68,41 @@ The project ingests customers, watchlist and transaction data from batch and str
 
 - Built a real-time monitoring dashboard using Silver and Gold layer tables.
 
+## 6. Repository Structure
+
+.
+├── images
+├── Notebooks
+│ ├── 1.Setup
+│ │ └── 02_Setup_Secret_Scope.py
+│ ├── 2.fraud_watchlist_file_generator
+│ │ ├── fraud_watchlist_data_generator.py
+│ │ └── fraud_watchlist.csv
+│ ├── 3.finguard_customers_silver_load
+│ │ └── silver
+│ │ └── customers_silver.py
+│ ├── 4.finguard_streaming
+│ │ ├── alert
+│ │ │ ├── fraud_card_alert_email_notifier.py
+│ │ │ └── high_value_transaction_email_notifier.py
+│ │ ├── bronze
+│ │ │ ├── fraud_watchlist_bronze.py
+│ │ │ └── transactions_bronze.py
+│ │ ├── gold
+│ │ │ ├── fraud_card_alert.py
+│ │ │ ├── high_value_transactions_alert.py
+│ │ │ ├── transaction_count_by_minute_sliding_window.py
+│ │ │ └── transaction_count_by_minute.py
+│ │ └── silver
+│ │ ├── fraud_watchlist_silver.py
+│ │ └── transactions_silver.py
+│ └── 5.Dashboard
+│ └── FinGuard Real-Time Monitoring Dashboard.lvdash.json
+├── README.md
+└── source_files
+├── kafka_producer
+└── postgres sql
+
 ## 7. Dashboard
 
 ![executive_dashboard_1](images/executive_dashboard_1.png)
