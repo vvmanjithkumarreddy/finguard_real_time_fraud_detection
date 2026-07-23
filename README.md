@@ -11,8 +11,9 @@ End-to-End Streaming data engineering project built on Databricks, simulating a 
 5. Layer-by-Layer Design
 6. Repository Structure
 7. Dashboard
-8. Orchestration
-9. How to run the project
+8. Email Alerts
+9. Orchestration
+10. How to run the project
 
 ## 1. Project Overview
 
@@ -115,15 +116,25 @@ The project ingests customers, watchlist and transaction data from batch and str
 ![operations_1](images/operations_1.png)
 ![operations_2](images/operations_2.png)
 
-## 8. Orchestration
+## 8. Email Alerts
+
+![High Value Transactiion Alert](images/High%20Value%20Transaction%20Alert.png)
+![Fraud Card Alert](images/Fraud%20Card%20Alert.png)
+
+## 9. Orchestration
 
 - We run customer_ingestion_source_to_silver daily batch job to fetch change customer data.
 - We run finguard_streaming pipeline in continious mode.
 
-## 9. How to run the project
+## 10. How to run the project
 
 - create the customers table in a postgres source database using .sql files in source_files
 - create a kafka topic named credit_card_tansactions
 - Use the kafak_producer folder in source_files in local machine and configure to write to the kafka topic
 - Read transactions from the kafka topic using spark streaming
 - run the finguard_streaming pipeline in continous mode and customer_ingestion_source_to_silver as a daily batch job
+
+## Notes:
+
+https://youtu.be/SsE5ZfxtiOI
+I have followed the above tutorial as reference for building this project.
