@@ -27,3 +27,45 @@ The project ingests customers, watchlist and transaction data from batch and str
 ## 2. Architecture Overview
 
 ![Architecture diagram 1](images/finguard_architecture.png)
+
+## 3. Tech Stack
+
+| Component        | Technology                                               |
+| ---------------- | -------------------------------------------------------- |
+| Compute/Platform | Databricks Free edition                                  |
+| Governance       | Unity Catalog                                            |
+| Data Sources     | Apache Kafka, Streaming Files, Postgres SQL Database     |
+| Data Ingestion   | Spark Streaming, Databricks Autoloader, Lakeflow Connect |
+| Orchestration    | Lakeflow Jobs                                            |
+| Transformation   | Spark Declarative Pipelines                              |
+| Source Control   | Github via Databricks Repos                              |
+| Consumption      | Gmail Alerts, Databricks Dashboards                      |
+
+## 4. Data Sources
+
+| Data                            | Type      | Source               |
+| ------------------------------- | --------- | -------------------- |
+| Customers Master Data           | Batch     | PostgresSQL          |
+| Fraud Watchlist (Flagged Cards) | Streaming | Volumes (JSON Files) |
+| Live Transactions               | Streaming | Kafka                |
+
+## 5. Layer-by-Layer Design
+
+## Bronze
+
+- In bronze layer we ingest Customers Master data from Postgres SQL Database using Lakeflow Connect as a daily batch load
+- We ingest Fraud Watchlist streaming data using Autoloader
+- We ingest Live Transactions data from kafka using Spark Streaming
+
+## Silver
+
+- We perform data validation, cleaning and transformation using Spark Declarative Pipelines
+
+## Gold
+
+- In gold layer we join the data streams and send the real time high_value_transaction alert and fraud card alerts to customers in real time using Gmail SMTP Server
+- Also perform business level aggregates in gold layer
+
+## Dashboard
+
+- Built a real-time monitoring dashboard based on silver and gold tables
