@@ -9,12 +9,10 @@ End-to-End Streaming data engineering project built on Databricks, simulating a 
 3. Tech Stack
 4. Data Sources
 5. Layer-by-Layer Design
-6. Key Engineering Decisions
-7. Repository Structure
-8. Dashboard
-9. Orchestration
-10. Know Issues and Roadmap
-11. How to run the project
+6. Repository Structure
+7. Dashboard
+8. Orchestration
+9. How to run the project
 
 ## 1. Project Overview
 
@@ -64,8 +62,30 @@ The project ingests customers, watchlist and transaction data from batch and str
 ## Gold
 
 - In gold layer we join the data streams and send the real time high_value_transaction alert and fraud card alerts to customers in real time using Gmail SMTP Server
-- Also perform business level aggregates in gold layer
+- Implemented business-level aggregations in the Gold layer for reporting and analytics.
 
 ## Dashboard
 
-- Built a real-time monitoring dashboard based on silver and gold tables
+- Built a real-time monitoring dashboard using Silver and Gold layer tables.
+
+## 7. Dashboard
+
+![executive_dashboard_1](images/executive_dashboard_1.png)
+![fraud_monitoring_1](images/fraud_monitoring_1.png)
+![fraud_monitoring_2](images/fraud_monitoring_2.png)
+![fraud_monitoring_3](images/fraud_monitoring_3.png)
+![operations_1](images/operations_1.png)
+![operations_2](images/operations_2.png)
+
+## 8. Orchestration
+
+- We run customer_ingestion_source_to_silver daily batch job to fetch change customer data.
+- We run finguard_streaming pipeline in continious mode.
+
+## 9. How to run the project
+
+- create the customers table in a postgres source database using .sql files in source_files
+- create a kafka topic named credit_card_tansactions
+- Use the kafak_producer folder in source_files in local machine and configure to write to the kafka topic
+- Read transactions from the kafka topic using spark streaming
+- run the finguard_streaming pipeline in continous mode and customer_ingestion_source_to_silver as a daily batch job
