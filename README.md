@@ -136,6 +136,6 @@ The project ingests customers, watchlist and transaction data from batch and str
 
 ## Notes:
 
-https://youtu.be/SsE5ZfxtiOI\
+https://youtu.be/SsE5ZfxtiOI <br>
 
 I have followed the above tutorial as reference for building this project.
