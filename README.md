@@ -70,7 +70,7 @@ The project ingests customers, watchlist and transaction data from batch and str
 
 ## 6. Repository Structure
 
-'''
+```
 .
 ├── images
 ├── Notebooks
@@ -103,7 +103,7 @@ The project ingests customers, watchlist and transaction data from batch and str
 └── source_files
 ├── kafka_producer
 └── postgres sql
-'''
+```
 
 ## 7. Dashboard
 
